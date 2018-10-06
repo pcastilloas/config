@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservation-business-services
+spec:
+  selector:
+      matchLabels:
+        app: reservation-business-services
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reservation-business-services
+    spec:
+      containers:
+        - name: reservation-business-services
+          image: pedrocastillo/reservation-business-services
+          ports:
+            - containerPort: 8004
